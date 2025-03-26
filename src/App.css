@@ -1,0 +1,255 @@
+/* Переменные для светлой/темной темы */
+:root {
+  --bg-color: #f8f9fa;
+  --text-color: #212529;
+  --input-bg: #ffffff;
+  --input-border: #ced4da;
+  --item-bg: #ffffff;
+  --item-border: #dee2e6;
+  --button-primary-bg: #0d6efd;
+  --button-primary-text: #ffffff;
+  --button-outline-bg: transparent;
+  --button-outline-text: #6c757d;
+  --button-outline-border: #6c757d;
+  --button-danger-bg: #dc3545;
+  --button-danger-text: #ffffff;
+  --completed-text: #6c757d;
+  --completed-line: #6c757d;
+  --date-text: #6c757d;
+  --filters-bg: #e9ecef;
+  --shadow: rgba(0, 0, 0, 0.1);
+}
+
+[data-theme='dark'] {
+  --bg-color: #212529;
+  --text-color: #f8f9fa;
+  --input-bg: #343a40;
+  --input-border: #495057;
+  --item-bg: #343a40;
+  --item-border: #495057;
+  --button-primary-bg: #0d6efd;
+  --button-primary-text: #ffffff;
+  --button-outline-bg: transparent;
+  --button-outline-text: #adb5bd;
+  --button-outline-border: #adb5bd;
+  --button-danger-bg: #dc3545;
+  --button-danger-text: #ffffff;
+  --completed-text: #adb5bd;
+  --completed-line: #adb5bd;
+  --date-text: #adb5bd;
+  --filters-bg: #343a40;
+  --shadow: rgba(0, 0, 0, 0.25);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  transition: background-color 0.3s, color 0.3s;
+}
+
+.App {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2rem 1rem;
+}
+
+.theme-switch-container {
+  width: 100%;
+  max-width: 600px;
+  display: flex;
+  justify-content: flex-end;
+  margin-bottom: 1rem;
+}
+
+.theme-switch {
+  background: transparent;
+  border: 1px solid var(--button-outline-border);
+  color: var(--button-outline-text);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+  transition: all 0.2s;
+}
+
+.theme-switch:hover {
+  background-color: var(--button-outline-border);
+  color: var(--bg-color);
+}
+
+.todo-app {
+  width: 100%;
+  max-width: 600px;
+  background-color: var(--item-bg);
+  border-radius: 8px;
+  box-shadow: 0 2px 10px var(--shadow);
+  padding: 2rem;
+}
+
+h1 {
+  text-align: center;
+  margin-top: 0;
+  margin-bottom: 1.5rem;
+}
+
+.todo-form {
+  display: flex;
+  margin-bottom: 1.5rem;
+}
+
+.todo-input {
+  flex: 1;
+  padding: 0.75rem;
+  font-size: 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 4px 0 0 4px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.add-button {
+  padding: 0.75rem 1.5rem;
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  border: none;
+  border-radius: 0 4px 4px 0;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.filters {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+  padding: 0.5rem;
+  background-color: var(--filters-bg);
+  border-radius: 4px;
+}
+
+.filters button {
+  background: none;
+  border: none;
+  color: var(--button-outline-text);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 4px;
+}
+
+.filters button.active {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+}
+
+.filters .clear-completed {
+  color: var(--button-danger-text);
+  background-color: var(--button-danger-bg);
+}
+
+.todo-list {
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+}
+
+.todo-item {
+  display: flex;
+  align-items: center;
+  padding: 1rem;
+  border-bottom: 1px solid var(--item-border);
+  transition: background-color 0.2s;
+}
+
+.todo-item:last-child {
+  border-bottom: none;
+}
+
+.todo-item:hover {
+  background-color: var(--filters-bg);
+}
+
+.todo-checkbox {
+  margin-right: 1rem;
+  height: 20px;
+  width: 20px;
+}
+
+.todo-content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+.todo-text {
+  font-size: 1rem;
+  margin-bottom: 0.25rem;
+}
+
+.todo-date {
+  font-size: 0.75rem;
+  color: var(--date-text);
+}
+
+.todo-actions {
+  display: flex;
+  gap: 0.5rem;
+}
+
+.edit-button, .delete-button, .save-button, .cancel-button {
+  padding: 0.5rem;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 0.9rem;
+}
+
+.edit-button {
+  background-color: var(--button-outline-bg);
+  color: var(--button-outline-text);
+  border: 1px solid var(--button-outline-border);
+}
+
+.delete-button, .cancel-button {
+  background-color: var(--button-danger-bg);
+  color: var(--button-danger-text);
+  border: none;
+}
+
+.save-button {
+  background-color: var(--button-primary-bg);
+  color: var(--button-primary-text);
+  border: none;
+}
+
+.edit-form {
+  display: flex;
+  width: 100%;
+  gap: 0.5rem;
+}
+
+.edit-input {
+  flex: 1;
+  padding: 0.5rem;
+  font-size: 1rem;
+  border: 1px solid var(--input-border);
+  border-radius: 4px;
+  background-color: var(--input-bg);
+  color: var(--text-color);
+}
+
+.todo-item.completed .todo-text {
+  text-decoration: line-through;
+  color: var(--completed-text);
+}
+
+.empty-message {
+  text-align: center;
+  padding: 2rem;
+  color: var(--date-text);
+}
