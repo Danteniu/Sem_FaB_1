@@ -9,8 +9,6 @@
 
 ## Расширение конфигурации ESLint
 
-Если вы разрабатываете производственное приложение, мы рекомендуем обновить конфигурацию, чтобы включить правила lint с учетом типов:
-
 ```js
 export default tseslint.config({
   extends: [
@@ -30,8 +28,6 @@ export default tseslint.config({
   },
 })
 ```
-
-Вы также можете установить [eslint-plugin-react-x](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-x) и [eslint-plugin-react-dom](https://github.com/Rel1cx/eslint-react/tree/main/packages/plugins/eslint-plugin-react-dom) для правил lint, специфичных для React:
 
 ```js
 // eslint.config.js
